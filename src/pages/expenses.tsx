@@ -6,14 +6,14 @@ const Expenses = () => {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Expenses</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Gastos</h2>
           <p className="text-muted-foreground">
-            Track and manage your fleet expenses
+            Registre y administre los gastos de su flota
           </p>
         </div>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
-          Add Expense
+          Agregar Gasto
         </Button>
       </div>
     </div>

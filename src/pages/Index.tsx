@@ -3,28 +3,28 @@ import { Car, DollarSign, Users, Wrench } from "lucide-react";
 
 const stats = [
   {
-    name: "Total Vehicles",
+    name: "Total Vehículos",
     value: "12",
     icon: Car,
     change: "+2",
     changeType: "increase",
   },
   {
-    name: "Active Drivers",
+    name: "Conductores Activos",
     value: "8",
     icon: Users,
     change: "0",
     changeType: "neutral",
   },
   {
-    name: "Monthly Expenses",
+    name: "Gastos Mensuales",
     value: "$12,400",
     icon: DollarSign,
     change: "-8%",
     changeType: "decrease",
   },
   {
-    name: "Pending Maintenance",
+    name: "Mantenimientos Pendientes",
     value: "3",
     icon: Wrench,
     change: "+1",
@@ -36,9 +36,9 @@ const Dashboard = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
+        <h2 className="text-2xl font-bold tracking-tight">Panel de Control</h2>
         <p className="text-muted-foreground">
-          Overview of your fleet management system
+          Vista general de su sistema de gestión de flota
         </p>
       </div>
 
@@ -54,7 +54,7 @@ const Dashboard = () => {
             <CardContent>
               <div className="text-2xl font-bold">{stat.value}</div>
               <p className="text-xs text-muted-foreground">
-                {stat.change} from last month
+                {stat.change} desde el mes pasado
               </p>
             </CardContent>
           </Card>

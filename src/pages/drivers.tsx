@@ -6,14 +6,14 @@ const Drivers = () => {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Drivers</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Conductores</h2>
           <p className="text-muted-foreground">
-            Manage your team of drivers
+            Administre su equipo de conductores
           </p>
         </div>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
-          Add Driver
+          Agregar Conductor
         </Button>
       </div>
     </div>

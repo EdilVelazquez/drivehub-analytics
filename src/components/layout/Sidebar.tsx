@@ -13,11 +13,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
-  { name: "Vehicles", href: "/vehicles", icon: Car },
-  { name: "Drivers", href: "/drivers", icon: Users },
-  { name: "Expenses", href: "/expenses", icon: Receipt },
-  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "Panel", href: "/", icon: LayoutDashboard },
+  { name: "Vehículos", href: "/vehicles", icon: Car },
+  { name: "Conductores", href: "/drivers", icon: Users },
+  { name: "Gastos", href: "/expenses", icon: Receipt },
+  { name: "Configuración", href: "/settings", icon: Settings },
 ];
 
 const NavContent = () => {
@@ -68,7 +68,7 @@ export function Sidebar() {
         </SheetTrigger>
         <SheetContent side="left" className="w-72">
           <div className="flex h-16 items-center px-6">
-            <h1 className="text-xl font-bold">FleetManager</h1>
+            <h1 className="text-xl font-bold">Gestor de Flota</h1>
           </div>
           <NavContent />
         </SheetContent>
@@ -80,7 +80,7 @@ export function Sidebar() {
     <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
       <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
         <div className="flex h-16 items-center">
-          <h1 className="text-xl font-bold">FleetManager</h1>
+          <h1 className="text-xl font-bold">Gestor de Flota</h1>
         </div>
         <NavContent />
       </div>

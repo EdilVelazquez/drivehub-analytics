@@ -6,14 +6,14 @@ const Vehicles = () => {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Vehicles</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Vehículos</h2>
           <p className="text-muted-foreground">
-            Manage your fleet of vehicles
+            Administre su flota de vehículos
           </p>
         </div>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
-          Add Vehicle
+          Agregar Vehículo
         </Button>
       </div>
     </div>
