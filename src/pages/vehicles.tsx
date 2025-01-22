@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { VehicleForm } from "@/components/vehicles/VehicleForm";
@@ -16,6 +17,18 @@ import {
 
 const Vehicles = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        navigate("/auth");
+      }
+    };
+    checkAuth();
+  }, [navigate]);
 
   const { data: vehicles, isLoading } = useQuery({
     queryKey: ["vehicles"],
@@ -50,7 +63,7 @@ const Vehicles = () => {
             <DialogHeader>
               <DialogTitle>Agregar Vehículo</DialogTitle>
             </DialogHeader>
-            <VehicleForm />
+            <VehicleForm onSuccess={() => setOpen(false)} />
           </DialogContent>
         </Dialog>
       </div>

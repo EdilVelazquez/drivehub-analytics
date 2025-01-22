@@ -30,7 +30,11 @@ type VehicleFormData = {
   category: string;
 };
 
-export function VehicleForm() {
+interface VehicleFormProps {
+  onSuccess?: () => void;
+}
+
+export function VehicleForm({ onSuccess }: VehicleFormProps) {
   const { toast } = useToast();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -49,10 +53,24 @@ export function VehicleForm() {
   const onSubmit = async (data: VehicleFormData) => {
     try {
       setIsLoading(true);
+      
+      // Get the current session
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Debe iniciar sesión para agregar vehículos.",
+        });
+        navigate("/auth");
+        return;
+      }
+
       const { error } = await supabase.from("vehicles").insert([
         {
           ...data,
-          user_id: (await supabase.auth.getUser()).data.user?.id,
+          user_id: session.user.id,
         },
       ]);
 
@@ -62,7 +80,11 @@ export function VehicleForm() {
         title: "Vehículo agregado",
         description: "El vehículo ha sido agregado exitosamente.",
       });
-      navigate("/vehicles");
+      
+      onSuccess?.();
+      if (!onSuccess) {
+        navigate("/vehicles");
+      }
     } catch (error) {
       console.error("Error:", error);
       toast({
